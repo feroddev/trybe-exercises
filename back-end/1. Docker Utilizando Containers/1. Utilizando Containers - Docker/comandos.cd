@@ -1,0 +1,69 @@
+🚀 Exercício 1:
+Para buscar a imagem oficial da Distribuição Linux Debian no Docker Hub, você pode usar o Docker Hub Search. Basta ir para a página inicial do Docker Hub (https://hub.docker.com/) e usar a caixa de busca. 
+Procure por "Debian" e você encontrará a imagem oficial do Debian.
+
+🚀 Exercício 2:
+Depois de encontrar a imagem oficial do Debian no Docker Hub, acesse a página de detalhes da imagem clicando no seu card. 
+Verifique se há instruções para baixar a imagem localmente. Normalmente, você verá um comando que se parece com o seguinte:
+
+docker pull debian:stable-slim
+
+🚀 Exercício 3:
+Para baixar a imagem com a tag "stable-slim", use o seguinte comando no terminal:
+
+docker pull debian:stable-slim
+
+Isso fará o download da imagem do Debian com a versão "stable-slim" para o seu computador.
+
+🚀 Exercício 4:
+Após baixar a imagem, crie e execute um container no modo interativo com a imagem como referência. Use o seguinte comando:
+
+docker run -it debian:stable-slim
+
+
+Isso iniciará um container interativo usando a imagem do Debian "stable-slim".
+
+🚀 Exercício 5:
+Dentro do terminal do container, execute o seguinte comando para visualizar os dados da distribuição Debian:
+
+cat /etc/*-release
+
+
+Isso exibirá informações sobre a distribuição Debian que está sendo executada no container.
+
+🚀 Exercício 6:
+Para encerrar o terminal do container, basta digitar `exit`.
+
+🚀 Exercício 7:
+Para verificar na lista de containers qual se refere ao exercício que acabou de praticar, você pode listar todos os containers com o comando:
+
+docker ps -a
+
+
+Isso mostrará todos os containers, incluindo o que você acabou de executar.
+
+🚀 Exercício 8:
+Para iniciar o mesmo container novamente, sem criar outro, você pode usar o comando `docker start` seguido do ID ou nome do container. Por exemplo:
+
+docker start NOME_DO_CONTAINER
+
+
+Isso iniciará o mesmo container que você utilizou anteriormente.
+
+🚀 Exercício 9:
+Para retomar o container que foi criado anteriormente, utilize o comando `docker attach` seguido do ID ou nome do container:
+
+docker attach NOME_DO_CONTAINER
+
+
+🚀 Exercício 10:
+Dentro do terminal do container retomado, execute o seguinte comando para verificar a versão atual do sistema Debian:
+
+cat /etc/debian_version
+
+
+🚀 Exercício 11:
+Para encerrar o terminal do container, basta digitar `exit`.
+
+🚀 Exercício 12:
+Se você deseja executar mais exercícios, pode repetir os passos anteriores ou fazer outras tarefas relacionadas ao Docker para continuar praticando.
