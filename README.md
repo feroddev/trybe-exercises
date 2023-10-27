@@ -137,5 +137,5 @@ Este repositório contém todas as atividades de aprendizagem desenvolvidas por 
 ### Seção 3: [Docker: Utilizando Containers](https://github.com/feroddev/trybe-exercises/pulls) ✅
 - [X] 3.1 - Funções mais usadas no SQL
 - [X] 3.2 - Descomplicando JOINs
-- [ ] 3.3 - Transformando ideias em um modelo de banco de dados
-- [ ] 3.4 - Projeto - One For All
+- [X] 3.3 - Transformando ideias em um modelo de banco de dados
+- [X] 3.4 - Projeto - One For All
