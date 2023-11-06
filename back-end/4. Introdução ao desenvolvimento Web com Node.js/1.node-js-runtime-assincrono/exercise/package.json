@@ -5,6 +5,12 @@
   "main": "bmi.js",
   "scripts": {
     "bmi": "node bmi.js",
+    "01": "node simpsons1.js",
+    "02": "node simpsons2.js",
+    "03": "node simpsons3.js",
+    "04": "node simpsons4.js",
+    "05": "node simpsons5.js",
+    "06": "node simpsons6.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
