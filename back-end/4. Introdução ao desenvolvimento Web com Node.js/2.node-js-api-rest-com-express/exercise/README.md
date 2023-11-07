@@ -103,3 +103,15 @@ O corpo da requisição deve receber o seguinte formato:</p>
 🚀 Exercício 9</h2>
 <p>
 Crie um endpoint do tipo <code class="inline">DELETE</code> com a rota <code class="inline">/movies/:id</code> que possa deletar um filme do JSON.</p>
+<br><br><br>
+
+<div class="c-kWDhvw"><article class="c-daJEgu"><h1>
+Exercícios - bônus</h1>
+</article><article class="c-daJEgu"><h2>
+🚀 Exercício 10</h2>
+<p>
+Crie um endpoint do tipo <code class="inline">GET</code> com a rota <code class="inline">/movies/search</code>, que possa listar todos os filmes do JSON.</p>
+<ul>
+  <li>
+A rota deve receber a informação por <code class="inline">query</code> e a chave deve-se chamar <code class="inline">q</code>. A chave vai trazer consigo valor de ‘gente’ por exemplo, e o filtro deve trazer apenas os filmes com esse termo, se não encontrar, traga um <em>array</em> vazio.  </li>
+</ul>
