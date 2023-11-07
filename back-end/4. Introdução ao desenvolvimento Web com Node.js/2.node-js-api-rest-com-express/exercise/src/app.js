@@ -46,6 +46,8 @@ app.get('/movies/search', async function(req, res) {
       return res.status(200).json(JSON.stringify(moviesFiltered))
     }
     res.status(200).end()
+  } catch (error) {
+    res.status(500).send({ message: error.message });
   }
 })
 
