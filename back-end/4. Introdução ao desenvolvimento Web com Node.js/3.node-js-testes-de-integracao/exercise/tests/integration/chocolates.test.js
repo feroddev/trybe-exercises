@@ -157,4 +157,39 @@ describe("Usando o método GET em /chocolates", function () {
       expect(response.body).to.be.deep.equal([]);
     });
   });
+
+  describe("5 - Crie os testes de integração para o endpoint PUT /chocolates/:id", function () {
+    it("Crie um caso verificando o código e o retorno esperado para quando o chocolate é atualizado", async function () {
+      const update = {
+        name: "Mint Pretty Good",
+        brandId: 2,
+      };
+
+      const response = await chai
+        .request(app)
+        .put("/chocolates/1")
+        .send(update);
+
+      const updateResponse = {
+        chocolate: {
+          id: 1,
+          name: "Mint Pretty Good",
+          brandId: 2,
+        },
+      };
+
+      expect(response.status).to.be.equal(201);
+      expect(response.body).to.be.deep.equal(updateResponse);
+    });
+
+    it("Verifique se os testes falham com sucesso", async function () {
+      const update = {
+        name: "Mint Pretty Good",
+        brandId: 2,
+      };
+      const response = await chai.request(app).put("/chocolates/555").send(update);
+      expect(response.status).to.be.equal(404)
+      expect(response.body.message).to.be.equal('Chocolate não encontrado')
+    });
+  });
 });

@@ -3,6 +3,8 @@ const cacauTrybe = require('./cacauTrybe');
 
 const app = express();
 
+app.use(express.json());
+
 app.listen(3001, () => console.log('Ouvindo a porta 3001'));
 
 app.get('/chocolates', async function(req, res) {
@@ -25,7 +27,6 @@ app.get('/chocolates/search', async function(req, res) {
   return res.status(200).json(filteredChocolates);
 })
 
-
 app.get('/chocolates/brand/:brandId', async function(req, res) {
   const { brandId } = req.params;
   const chocolates = await cacauTrybe.getChocolatesByBrand(Number(brandId));
@@ -38,5 +39,13 @@ app.get('/chocolates/:id', async function(req, res) {
   if(!chocolate) return res.status(404).json({message: 'Chocolate not found'})
   res.status(200).json({chocolate});
 })
+
+app.put('/chocolates/:id', async function(req, res) {
+  const idChocolate = req.params.id;
+  const {name, brandId} = req.body;
+  const data = await cacauTrybe.putChocolateById(Number(idChocolate), {name, brandId});
+  if (data) return res.status(201).json({chocolate: data});
+  res.status(404).json({message: 'Chocolate não encontrado'});
+});
 
 module.exports = app;
