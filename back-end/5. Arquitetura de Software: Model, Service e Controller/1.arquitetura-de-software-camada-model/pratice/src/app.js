@@ -17,4 +17,27 @@ app.get('/passengers/:passengerId', async (req, res) => {
   return res.status(200).json(passenger);
 });
 
+app.post('/passengers', async (req, res) => {
+  const { name, email, phone } = req.body;
+
+  const passengerId = await passengerModel.insert({ name, email, phone });
+  const newPassenger = { id: passengerId, name, email, phone };
+
+  return res.status(201).json(newPassenger);
+});
+
+app.put('/passengers/:passengerId', async (req, res) => {
+  const { name, email, phone } = req.body;
+  const { passengerId } = req.params;
+  await passengerModel.update(passengerId, { name, email, phone });
+  const updatedPassenger = await passengerModel.findById(passengerId);
+  return res.status(200).json(updatedPassenger);
+});
+
+app.delete('/passengers/:passengerId', async (req, res) => {
+  const { passengerId } = req.params;
+  await passengerModel.remove(passengerId);
+  return res.status(204).end();
+});
+
 module.exports = app;

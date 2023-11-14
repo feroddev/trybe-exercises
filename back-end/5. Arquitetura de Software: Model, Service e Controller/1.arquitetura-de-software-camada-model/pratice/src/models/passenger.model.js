@@ -1,4 +1,10 @@
 const camelize = require('camelize');
+const {
+  getFormattedColumnNames,
+  getFormattedPlaceholders,
+  getFormattedUpdateColumns,
+} = require('../utils/generateFormattedQuery');
+
 const connection = require('./connection');
 
 const findAll = async () => {
@@ -16,7 +22,30 @@ const findById = async (passengerId) => {
   return camelize(passenger);
 };
 
+const insert = async (passenger) => {
+  const columns = getFormattedColumnNames(passenger);
+  const placeholders = getFormattedPlaceholders(passenger);
+  const query = `INSERT INTO passengers (${columns}) VALUE (${placeholders})`;
+  const [{ insertId }] = await connection.execute(query, [...Object.values(passenger)]);
+
+  return insertId;
+};
+
+const update = async (passengerId, dataToUpdate) => {
+  const formattedColumns = getFormattedUpdateColumns(dataToUpdate);
+  const query = `UPDATE passengers SET ${formattedColumns} WHERE id = ?`;
+  return connection.execute(query, [...Object.values(dataToUpdate), passengerId]);
+};
+
+const remove = async (passengerId) => {
+  const query = 'DETELE FROM passengers WHERE id = ?';
+  return connection.execute(query, [passengerId]);
+};
+
 module.exports = {
   findAll,
   findById,
+  insert,
+  update,
+  remove,
 };
